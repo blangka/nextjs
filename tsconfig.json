@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
+    /* 엄격한 null 검사 사용 */
+    "strictNullChecks": false,
+    "incremental": true
+  },
+  "typeRoots": [
+    "src/types"
+  ],
+  "include": [
+    "src"
+  ],
+  "extends": "./tsconfig.paths.json",
+  "exclude": [
+    "node_modules"
+  ]
+}
