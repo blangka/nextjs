@@ -1,8 +1,8 @@
-// @ts-ignore
 import React from 'react';
+import { NextPage } from 'next';
 
-const index = () => {
-  return <div>test </div>;
+const app: NextPage = () => {
+  return <div>test</div>;
 };
 
-export default index;
+export default app;

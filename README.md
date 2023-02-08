@@ -21,17 +21,25 @@ $ cd basic
 
 # npm
 $ npm install
-$ npm start
-
+$ npm run dev:dev
+```
 
 ## 🔨 Build
-
+```bash
 
 # npm
 $ npm install
-$ npm run build
+$ npm run build:dev
+```
 
+## 📐 StoryBook 
+```bash
 
+# npm
+$ npm run storybook
+
+http://localhost:6006/ 으로 접속
+```
 
 ## 🖥 Browsers support
 
@@ -42,106 +50,36 @@ Modern browsers and Internet Explorer 10+.
 
 ```bash
 ProjectRoot (기준 2022/02/06)
-├── public                  //
-│ └── fonts
-└── src
-├── api                     // 프로젝트내 사용되는 APIs
-├── assets                  // 정적 파일
-│ ├── header
-│ └── logo
-├── locales                 // I18n Stringtable
-│ ├── en-US
-│ └── th-TH
-├── mock                    // Mock API 용
-│ └── mirage
-│ └── factory
-├── pages                   // Page별 소스 하위 메뉴는 Router
-│ ...
-│ ├── contentManager
-│ │ ├── vehicleAccessories  // 1차 spec out
-│ │ │ └── [model]           // 동적 Routing []
-│ │ ├── vehicleContent
-│ │ │ └── components        // 해당 페이지 내에서만 사용하는 컴포넌트
-│ │ │ ├── modelContentTable
-│ │ │ ├── productInfo
-│ │ │ └── uploadRotateImageModal
-│ │ └── vehiclePackages     // 1차 spec out
-│ │ └── [id]
-│ │ └── edit
-│ ├── layout                // 프로젝트 Layout 구정
-│ │ └── tagView
-│ ├── login                 // Login 화면
-│ ├── product               // 메뉴 1Depth
-│ │ ├── accessories         // 1차 spec out
-│ │ │ └── [model]
-│ │ ├── packages            // 1차 spec out
-│ │ │ └── [id]
-│ │ │ └── edit
-│ │ ├── vehicleDisplay
-│ │ │ └── components
-│ │ │ ├── categoryDetailTable
-│ │ │ ├── categoryModelSetting
-│ │ │ ├── categoryTreeView
-│ │ │ └── variantColorSetting
-│ │ └── vehicleRegistration
-│ │ ├── [productId]         // 동적 라우팅 메뉴
-│ │ ├── components          // 해당 vehicleRegistration 메뉴에서 사용하는 컴포넌트
-│ │ │ ├── productColor
-│ │ │ ├── productInfo
-│ │ │ ├── productSpec
-│ │ │ └── vehicleRegistrationForm
-│ │ └── write
-│ └── signup                // 회원가입 페이지
+├── components              // 화면을 그리는 공통 부분
+├── containers              // component를 사용하고 동작(store, click등) 수행
+├── hooks                   // custom hook  
+├── pages                   // Page
+├── stores                  // recoil atom store  
 ├── querys                  // react-query
-├── reuse                   // 재사용 컴포넌트
-│ ├── components            // 재사용 컴포넌트
-│ │ ├── draggableTable
-│ │ ├── errorboundary
-│ │ ├── modal
-│ │ ├── multiLangSelect
-│ │ └── searchForm
-│ ├── config                // 시스템 설정?
-│ ├── constants             ?? constants라기보단...
-│ ├── hooks                 // 공통 Hooks
-│ ├── type                  // 프로젝트내 사용되는 Type정의
-│ │ ├── layout
-│ │ ├── mock
-│ │ └── user
-│ └── utils                 // utils function
-├── routes                  // router 설정 파일
-├── stores                  // Recoil Store
-├── styles                  // Project내 전반적인 Style
-└── types                 // 전역 타입 \*.d.ts
+├── util                    // 공통 함수
+└── types                   // 전역 타입 \*.d.ts
 ```
 
-## ✨ 신규 메뉴 추가
+## ✨ 프로젝트 규칙
 
 ```bash
-1. Pages 관리
-  a. 메뉴 단계별 Folder로 구성
-  b. 폴더명은 카멜케이스로 작성
-  c. 동적라우팅 메뉴는 Brackets([productId]) 기호로 폴더 생성
-  d. Default: index.tsx
-2. Router 관리
-  a. MenuPath 등록
-   - 경로: src/reuse/constants/menuPath.ts
-   - 1Depth메뉴: PascalCase
-   - 2Depth메뉴: KebabCase
-  b. Page Title
-   - 경로: src/locales/{df:en-US}/user/title.ts
-  c. Route
-   - 경로: src/routes/index.tsx
-   - Chunk기준: 메뉴별 나눔
-3. 상태관리(Recoil) 관리
-  a. 경로: src/stores/{\*}.store.ts
-4. API 관리
-  a. 경로: src/api/{_}Api.ts (_.api.ts)
-  b. NamingRule: (get|save|update|delete)으로 시작
-  c. Page단에서 API 파일을 바로 호출하지 않음.
-5. ReactQuery 관리
-  a. 경로: src/querys/\*.ts
-  b. src/querys/index.ts의 등록
-6. Type 관리
-  a. 종속정인 타입은 해당 Component에서 관리
-  b. 재사용정 타입은 src/types/[name]d.\*.ts 에서 관리.
+1. 폰트
+  - aws에 upload된 web font를 styles/global.scss에 font-face 한것을 사용한다.
+2. components
+  - 화면을 그리는 최하위의 단위로 StoryBook을 꼭 넣어 준다.
+3. style
+  - 같은 폴더 내에 .style.tsx를 추가하고 emotion css를 사용한다.
+  - .tsx 에서는 style과 관련된 부분을 넣지 않는다.
+```
+
+
+## 🖥 예제
+
+```bash
+1. env 
+  a. 경로 : /sample/env
+  b. npm run dev:{??} 실행 환경에 따라서 env 파일 값을 받아오도록 되어 있습니다.
+2. emotion, storybook
+  a. 경로 : /sample/emotion
+  b. components에 구성된 basicButton은 Storybook, emotion으로 된 styles로 되어 있습니다.
 ```
