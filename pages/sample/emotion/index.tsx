@@ -1,3 +1,5 @@
+import React from 'react';
+
 import BasicButton from 'components/sample/basicButton/BasicButton';
 
 const EmotionPage = () => {

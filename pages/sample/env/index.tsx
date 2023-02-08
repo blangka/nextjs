@@ -1,3 +1,5 @@
+import React from 'react';
+
 const EnvPage = () => {
   const mode = process.env.NEXT_PUBLIC_MODE;
 
