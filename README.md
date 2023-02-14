@@ -70,6 +70,9 @@ ProjectRoot (기준 2022/02/06)
 3. style
   - 같은 폴더 내에 .style.tsx를 추가하고 emotion css를 사용한다.
   - .tsx 에서는 style과 관련된 부분을 넣지 않는다.
+4. 코딩 컨벤션
+  - prettier 설정으로 기본 규칙 적용
+  - eslint recommend를 활용하고 변경이 필요한 lint 규칙은 추가 후 사용
 ```
 
 

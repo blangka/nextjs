@@ -1,24 +1,24 @@
-@mixin font-face($name) {
+@mixin font-face($brand,$name) {
   $filepath: 'https://ict-common.hyundai.net/fonts';
   @font-face {
     font-family: '#{$name}';
     font-weight: normal;
     font-style: normal;
-    src: url('#{$filepath}/#{$name}.eot'); /* IE 6 ~ 8, IE 호환성 보기 */
-    src: url('#{$filepath}/#{$name}.woff2') format('woff2'),
+    src: url('#{$filepath}/#{$brand}/#{$name}.eot'); /* IE 6 ~ 8, IE 호환성 보기 */
+    src: url('#{$filepath}/#{$brand}/#{$name}.woff2') format('woff2'),
       /* IE Edge, WOFF2 지원 브라우저 */
-    url('#{$filepath}/#{$name}.woff') format('woff'),
+    url('#{$filepath}/#{$brand}/#{$name}.woff') format('woff'),
       /* IE 9+, 모던 브라우저 */
-    url('#{$filepath}/#{$name}.ttf') format('truetype');
+    url('#{$filepath}/#{$brand}/#{$name}.ttf') format('truetype');
   }
 }
 
 /* genesis font */
-@include font-face('GenesisSansHeadKRLight');
-@include font-face('GenesisSansHeadKRRegular');
-@include font-face('GenesisSansTextKRBold');
-@include font-face('GenesisSansTextKRMedium');
-@include font-face('GenesisSansTextKRRegular');
+@include font-face('genesis', 'GenesisSansHeadKRLight');
+@include font-face('genesis', 'GenesisSansHeadKRRegular');
+@include font-face('genesis', 'GenesisSansTextKRBold');
+@include font-face('genesis', 'GenesisSansTextKRMedium');
+@include font-face('genesis', 'GenesisSansTextKRRegular');
 
 html,
 body {
