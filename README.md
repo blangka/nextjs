@@ -85,4 +85,8 @@ ProjectRoot (기준 2022/02/06)
 2. emotion, storybook
   a. 경로 : /sample/emotion
   b. components에 구성된 basicButton은 Storybook, emotion으로 된 styles로 되어 있습니다.
+3. react-query
+  a. 경로 : /sample/reactquery
+  b. 참고자료 : https://kyounghwan01.github.io/blog/React/react-query/basic/#api
+  c. useQuery 와 useMutation 을 활용한 데이터 패칭
 ```
